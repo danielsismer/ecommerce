@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -22,6 +23,9 @@ public class Pedido {
 
     @Column(name = "data_entrega")
     private LocalDate dataEntrega;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> pedidos;
 
     public Pedido(LocalDate dataGeraco, LocalDate dataEntrega) {
         this.dataGeraco = dataGeraco;

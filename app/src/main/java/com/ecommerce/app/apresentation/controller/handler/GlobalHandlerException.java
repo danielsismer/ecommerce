@@ -35,7 +35,7 @@ public class GlobalHandlerException {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponseDTO> captureException(Exception ex){
         ex.printStackTrace();
-        return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), null); // ← mostra a mensagem real
+        return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), null);
     }
 
     private ResponseEntity<ErrorResponseDTO> buildResponse(HttpStatus  status, String message, Map<String, String> errors){
